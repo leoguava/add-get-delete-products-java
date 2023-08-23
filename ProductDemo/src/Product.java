@@ -3,6 +3,9 @@ public class Product {
     String color;
     String type;
     double price;
+    double disc;
+
+
 
     public Product(String name, String color, String type, double price) {
         this.name = name;

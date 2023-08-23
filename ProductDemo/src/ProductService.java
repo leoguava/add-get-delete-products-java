@@ -4,14 +4,19 @@ import java.util.List;
 public class ProductService {
 
     public List<Product> products = new ArrayList<>();
-    public void addProduct(Product p){
-        products.add(p);
+    public void addProduct(String name, String color, String type, double price){
+        products.add(new Product(name,color,type,price));
     }
     public List<Product> getAllProduct(){
         return products;
     }
 
-
+     void applyDiscount(String name, Double disc){
+        for(Product p:products){if(p.name.equalsIgnoreCase(name)){
+            disc.toString().replace(".",",");
+            p.price = p.price * (1-disc);
+        }}
+    }
    public Product getProduct(String name){
        for(Product p: products) {
            if(p.name.equalsIgnoreCase(name) || p.type.equalsIgnoreCase(name) || p.color.equalsIgnoreCase(name) ){
